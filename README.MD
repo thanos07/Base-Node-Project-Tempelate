@@ -17,32 +17,32 @@ Let's take a look inside the `src` folder
  - `services` --> contains the business logic and interacts with repositories for data from the database
 
  - `utils` --> contains helper methods, error classes etc.
- - Inside the `src/config` folder create a file named as `config.json` and write the following code:
- ```
- {
-  "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  }
-}
 
- ```
+ ### Setup the project
+
+ - Download this tempelate from github and open it in your favourite text editor.
+ - Go inside the folder path and execute the following command:
+    ```
+        npm install
+    ```
+ - in the root directory create a new `env` file and add the following env variables 
+    ``` 
+        PORT = <Port number of your choice>
+    ``` 
+  example:
+    ```
+        PORT=3000
+    ```
+ - go inside the `src` folder and execute the following command:
+    ```
+         npx sequelize init
+    ```
+ - By executing the above command you will get migrations and seeders folder along with a config.json inside the config folder.
  - If you are setting up your development environment, then write the username of your db, password of your db and then in dialect mention whatever you are using. Example : mysql, mariadb, etc.
  - If you are setting up text or production environment, make sure you also replace the host with the hosted db url.
+ - Migrations files are used to do version control of our database, they are simple language scripts. if you are using node.js and sequelize then they are javascripts if using rubyonrails then they are ruby files. inthese files you actually write programatically that how to maintain version of your database.
+ 
+ - To run the server execute 
+    ```
+        npm run dev
+    ```
